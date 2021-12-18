@@ -1,0 +1,62 @@
+﻿@model Aptitude.Models.Department
+<!--Department name + Salary-->
+    <div class="form-row">
+        <div class="form-group col-lg-6">
+            <label>Department Name</label>
+            <input asp-for="Name" placeholder="Input Department Name" class="form-control"/>
+            <span asp-validation-for="Name" id="depart-validate"></span>
+        </div>
+        <div class="form-group col-lg-6">
+            <label>Salary</label>
+            <input asp-for="Salary" placeholder="Input Salary" class="form-control" />
+            <span asp-validation-for="Salary" id="depart-validate"></span>
+        </div>
+    </div>
+<!--Location-->
+    <div class="form-row">
+        <div class="form-group col-lg-12">
+            <label>Location</label>
+            <input asp-for="Location" placeholder="Input Location" class="form-control"/>
+            <span asp-validation-for="Location" id="depart-validate"></span>
+        </div>
+    </div>
+<!--Details + Requirement-->
+    <div class="form-row">
+        <div class="form-group col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <label>Department Detail</label>
+                    <textarea asp-for="Detail" class="form-control depart-ck" placeholder="details"></textarea>
+                    <span asp-validation-for="Detail" id="depart-validate"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group col-lg-6">
+            <div class="card">
+                <div class="card-body">
+                    <label>Requirement</label>
+                    <textarea asp-for="Requirement" class="form-control depart-ck">Requirement</textarea>
+                    <span asp-validation-for="Requirement" id="depart-validate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--WelFare-->
+    <div class="form-row">
+        <div class="form-group col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <label>Welfare</label>
+                    <textarea asp-for="Welfare" class="form-control depart-ck">Welfare</textarea>
+                    <span asp-validation-for="Welfare" id="depart-validate"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Submit-->
+    <div class="form-row">
+        <div class="form-group col-lg-10"></div>
+        <div class="form-group col-lg-2 text-right">
+            <input type="submit" value="Submit" class="btn btn-primary"/>
+        </div>
+    </div>

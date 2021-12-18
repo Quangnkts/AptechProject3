@@ -1,0 +1,97 @@
+﻿@{ ViewData["Title"] = "Aptitude-Online";
+    Layout = "~/Views/Exam/examLayout.cshtml";
+
+}
+@section css{ 
+<style>
+    .candidate-info {
+        padding-top: 70px;
+        padding-bottom: 150px;
+    }
+
+    .test-question .single {
+        max-width: 650px;
+        margin: 0 auto;
+        text-align: center;
+        position: relative;
+    }
+
+    .test-question .single h2 {
+        font-size: 50px;
+        color: red;
+        text-transform: uppercase;
+    }
+    a.disabled {
+        pointer-events: none;
+        cursor: default;
+    }
+
+</style>
+}
+@using Microsoft.AspNetCore.Session;
+@using Microsoft.AspNetCore.Http;
+<section class="test-question">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="single" style="text-align:center">
+                    <h2>Aptitude-Online</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<hr />
+<section class="candidate-info">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-7">
+                <div class="card" style="width:400px">
+                    <div class="card-header">
+                        <h4 class="card-title" style="text-align:center"><i class="fa fa-fw fa-address-book-o"></i>John Doe</h4>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">
+                            <b><i class="fa fa-fw fa-envelope-o"></i>shmanhkien@gmail.com</b><br />
+                            <b><i class="fa fa-fw fa-university"></i>FPT-Aptech</b><br />
+                            <b><i class="fa fa-fw fa-book"></i>English</b><br />
+                        </p>
+                        <a href="#" class="btn btn-primary btn-lg btn-block">See Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="card">
+                    <div class="card-header">Link to Test</div>
+                    <div class="card-body">
+                        @if (Context.Session.GetString("exam") == "1")
+                        {
+                            <a asp-area="" asp-controller="Exam" asp-action="GeneralExam" class="btn btn-warning btn-lg btn-block">General Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="MathExam" class="btn btn-secondary btn-lg btn-block disabled">Math Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="ComputerExam" class="btn btn-secondary btn-lg btn-block disabled">Computer Exam</a>
+                        }
+                        @if (Context.Session.GetString("exam") == "2")
+                        {
+                            <a asp-area="" asp-controller="Exam" asp-action="GeneralExam" class="btn btn-secondary btn-lg btn-block disabled">General Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="MathExam" class="btn btn-warning btn-lg btn-block">Math Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="ComputerExam" class="btn btn-secondary btn-lg btn-block disabled">Computer Exam</a>
+                        }
+                        @if (Context.Session.GetString("exam") == "3")
+                        {
+                            <a asp-area="" asp-controller="Exam" asp-action="GeneralExam" class="btn btn-secondary btn-lg btn-block disabled">General Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="MathExam" class="btn btn-secondary btn-lg btn-block disabled">Math Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="ComputerExam" class="btn btn-warning btn-lg btn-block">Computer Exam</a>
+                        }
+                        @if (Context.Session.GetString("exam") == "4")
+                        {
+                            <a asp-area="" asp-controller="Exam" asp-action="GeneralExam" class="btn btn-secondary btn-lg btn-block disabled">General Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="MathExam" class="btn btn-secondary btn-lg btn-block disabled">Math Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="ComputerExam" class="btn btn-secondary btn-lg btn-block disabled">Computer Exam</a>
+                            <a asp-area="" asp-controller="Exam" asp-action="ResultExam" class="btn btn-secondary btn-lg btn-block">View Result</a>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

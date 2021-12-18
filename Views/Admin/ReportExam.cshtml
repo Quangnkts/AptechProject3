@@ -1,0 +1,88 @@
+﻿@model IEnumerable<Aptitude.Models.Exam>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+@section CSS{
+    <link rel="stylesheet" href="~/css/thanhcss.css">
+}
+<!--section.rp-exam-->
+<section class="rp-exam">
+    <!--container-->
+    <div class="container">
+        <!--row-->
+        <div class="row">
+            <div class="col-lg-12" style="text-align:center">
+                <h1 style="color:orangered">EXAM</h1>
+            </div>
+        </div><!--/.row-->
+        <!--row-->
+        <div class="row">
+            <div class="col-lg-9"></div>
+            <div class="col-lg-2">
+                <button onclick="window.print()">Print this page</button>
+            </div>
+            <div class="col-lg-1"></div>
+        </div><!--/.row-->
+        <br />
+        <!--row-->
+        <div class="row">
+            <!--col-lg-12-->
+            <div class="col-lg-12">
+                <!--card-->
+                <div class="card">
+                    <!--card-header-->
+                    <div class="card-header">
+                        <!--form-->
+                        @using (Html.BeginForm())
+                        {
+                            <input type="date" name="start" />
+                            <input type="date" name="end" />
+                            <input type="submit" value="Filter" class="btn-warning" />
+                        } <!--/.form-->
+                    </div>  <!--/.card-header-->
+                    <!--card-body-->
+                    <div class="card-body">
+                        <!--table-->
+                        <table class="table" id="table1">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Mark</th>
+                                    <th>Result</th>
+                                    <th>ExamTime</th>
+                                    <th>Date</th>
+                                    <th>Day</th>
+                                    <th>Month</th>
+                                    <th>Year</th>
+                                    <th>Answer</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <td>@item.Id</td>
+                                        <td>@item.Mark</td>
+                                        <td>@item.Result</td>
+                                        <td>@item.ExamTime</td>
+                                        <td>@item.Date</td>
+                                        <td>@int.Parse(item.Date.ToString("dd/MM/yyyy").Substring(0, 2))</td>
+                                        <td>@int.Parse(item.Date.ToString("dd/MM/yyyy").Substring(3, 2))</td>
+                                        <td>@int.Parse(item.Date.ToString("dd/MM/yyyy").Substring(6, 4))</td>
+                                        <td>@item.Answer</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table><!--/.table-->
+                    </div><!--/.card-body-->
+                </div> <!--/.card-->
+            </div> <!--/.col-lg-12-->
+        </div><!--/.row-->
+    </div> <!--/.container-->
+</section><!--/.section.rp-exam-->
+
+
+@section Scripts{
+    <script src="~/js/thanhjs.js"></script>
+}

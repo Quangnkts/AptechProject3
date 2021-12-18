@@ -1,0 +1,118 @@
+﻿@model Aptitude.Models.Question
+    <!--Question+--->
+<div class="form-row">
+    <div class="form-group col-lg-8">
+        <div class="card">
+            <div class="card-body">
+                <label><b>Question Name</b></label>
+                <textarea asp-for="QuestionName" class="form-control ques-ck"></textarea>
+                <span asp-validation-for="QuestionName" id="ques-validate"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Answer section-->
+<!--Answer 1+2-->
+<div class="form-row">
+    <!--Answer 1-->
+    <div class="form-group col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <label>Answer 1</label>
+                <textarea class="form-control ques-ck" asp-for="Answer1"></textarea>
+                <span asp-validation-for="Answer1" id="ques-validate"></span>
+            </div>
+        </div>
+    </div>
+    <!--Answer 2-->
+    <div class="form-group col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <label>Answer 2</label>
+                <textarea class="form-control ques-ck" asp-for="Answer2"></textarea>
+                <span asp-validation-for="Answer2" id="ques-validate"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Answer 3+4-->
+<div class="form-row">
+    <!--Answer 3-->
+    <div class="form-group col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <label>Answer 3</label>
+                <textarea class="form-control ques-ck" asp-for="Answer3"></textarea>
+                <span asp-validation-for="Answer3" id="ques-validate"></span>
+            </div>
+        </div>
+    </div>
+    <!--Answer 4-->
+    <div class="form-group col-lg-6">
+        <div class="card">
+            <div class="card-body">
+                <label>Answer 4</label>
+                <textarea class="form-control ques-ck" asp-for="@Model.Answer4"></textarea>
+                <span asp-validation-for="@Model.Answer4" id="ques-validate"></span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Final Answer-->
+<div class="form-row">
+    <div class="form-group col-lg-3">
+        <label>Correct Answer</label>
+        <select asp-for="@Model.FinalAnswer" class="form-control">
+            <option value="a">A</option>
+            <option value="b">B</option>
+            <option value="c">C</option>
+            <option value="d">D</option>
+        </select>
+    </div>
+    <div class="form-group col-lg-3">
+        <label>Department</label>
+        <select asp-for="@Model.DepartmentId" class="form-control">
+            @foreach (var item1 in (TempData["depart"] as List<Department>))
+            {
+                <option value="@item1.Id">@item1.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group col-lg-3">
+        <label>Exam Section</label>
+        <select asp-for="@Model.Category" class="form-control">
+            <option value=1>General Knowlegde</option>
+            <option value=2>Math</option>
+            <option value=3>Computer Technology</option>
+        </select>
+    </div>
+    <!--level-->
+    <div class="form-group col-lg-3">
+        <label>Difficult</label>
+        <select asp-for="@Model.Level " class="form-control">
+            <option value=10>Easy</option>
+            <option value=20>Medium</option>
+            <option value=40>Hard</option>
+        </select>
+    </div>
+</div>
+<!--Status-->
+<div class="form-row">
+   
+    <!--Status-->
+    <div class="form-group col-lg-3">
+        <label>Status</label>
+        <select asp-for="@Model.Status" class="form-control">
+            <option value=0>Disable</option>
+            <option value=1>Enable</option>
+        </select>
+    </div>
+</div>
+<!--submit button-->
+<div class="form-row">
+    <div class="form-group offset-lg-10"></div>
+    <div class="form-group col-lg-2 text-right">
+        <input type="submit" class="btn btn-primary form-control" />
+    </div>
+</div>
+<h3>@ViewBag.Msg</h3>

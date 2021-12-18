@@ -1,0 +1,245 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+@section CSS{
+    <link href="~/css/thanhcss.css" rel="stylesheet" />
+}
+<div class="container-fluid">
+    <div class="card dashboard-body">
+        <div class="card-body">
+            <!--Title Admin dashboard-->
+            <div class="row">
+                <div class="offset-lg-4"></div>
+                <div class="col-lg-4 dashboard-title-border">
+                    <h3 class="dashboard-title-text">Admin DashBoard</h3>
+                </div>
+                <div class="offset-lg-4"></div>
+            </div>
+            <!--Title question-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card w-75">
+                        <h4 class="ques-title-index card-header"><b>Question</b>(<span style="color:red">@ViewBag.cQues</span>)</h4>
+                    </div>
+                </div>
+            </div>
+            <!---Question-->
+            <div class="row">
+                <!--Question Create-->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-info elevation-1">
+                            <a asp-action="Question_Create" asp-controller="Admin">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text ques-detail-create">Create New Question</span>
+                            <a asp-action="Question_Create" asp-controller="Admin" class="ques-cre-btn">
+                                Click to add
+                            </a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!--General Knowledge Question-->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-danger elevation-1">
+                            <a asp-action="Question_General" asp-controller="Admin">
+                                <i class="fas fa-dice-d20"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text  ques-detail-list">General Knowlegde</span>
+                            <a asp-action="Question_General" asp-controller="Admin" class="ques-list-btn">
+                                View all <span style="color: #ff1c1c;">(@ViewBag.cGen)</span> question
+                            </a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+
+                <!--Math Question-->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-success elevation-1">
+                            <a asp-action="Question_Math" asp-controller="Admin">
+                                <i class="fas fa-calculator"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text ques-detail-list">Math</span>
+                            <a asp-action="Question_Math" asp-controller="Admin" class="ques-list-btn">
+                                View all <span style="color: #00ff22;">(@ViewBag.cMath)</span> question
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!--Computer Technology--->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-warning elevation-1">
+                            <a asp-controller="Admin" asp-action="Question_Computer">
+                                <i class="fas fa-laptop"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text ques-detail-list">Computer Technology</span>
+                            <a asp-action="Question_Computer" asp-controller="Admin" class="ques-list-btn">
+                                View all <span style="color: #ffc107;">(@ViewBag.cCom)</span> question
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Department title-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card w-50">
+                        <div>
+                            <h4 class="depart-title-index card-header"><b>Department</b>(<span style="color:red">@ViewBag.cDepart</span>)</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!---Department-->
+            <div class="row">
+                <!--Department Create-->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-info elevation-1">
+                            <a asp-action="Department_Create" asp-controller="Admin">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text ques-detail-index">Create New Department</span>
+                            <a asp-action="Department_Create" asp-controller="Admin" class="depart-cre-btn">
+                                Click to add
+                            </a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!---Department index-->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-danger elevation-1">
+                            <a asp-action="Department_Index" asp-controller="Admin">
+                                <i class="fas fa-building"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Department</span>
+                            <a asp-action="Department_Index" asp-controller="Admin" class="depart-list-btn">
+                                View all (<span style="color:red">@ViewBag.cDepart</span>) Department
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Title User-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card w-25">
+                        <h4 class="user-title-index card-header"><b>User</b>(<span style="color:red">@ViewBag.cUser</span>)</h4>
+                    </div>
+                </div>
+            </div>
+            <!---User-->
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-info elevation-1">
+                            <a asp-action="Create_User" asp-controller="Admin">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text ques-detail-create">Create New User</span>
+                            <a asp-action="Create_User" asp-controller="Admin" class="user-cre-btn">
+                                Click to add
+                            </a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+            </div>
+            <!--Title Report-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card w-75">
+                        <h4 class="report-title-index card-header"><b>Report</b></h4>
+                    </div>
+                </div>
+            </div>
+            <!--Report-->
+            <div class="row">
+                <!--Report Exam-->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-info elevation-1">
+                            <a asp-action="ReportExam" asp-controller="Admin">
+                                <i class="fas fa-clipboard-list"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text report-detail-title">Report exam</span>
+                            <a asp-action="ReportExam" asp-controller="Admin" class="report-exam-btn">
+                                View all report Exam
+                            </a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!--Report CV-->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-danger elevation-1">
+                            <a asp-action="ReportCV" asp-controller="Admin">
+                                <i class="fas fa-clipboard-list"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text  report-detail-title">CV</span>
+                            <a asp-action="ReportCV" asp-controller="Admin" class="report-CV-btn">
+                                View all report CV
+                            </a>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
+                </div>
+                <!-- fix for small devices only -->
+                <div class="clearfix hidden-md-up"></div>
+                <!--Report Question-->
+                <div class="col-md-3">
+                    <div class="info-box mb-3">
+                        <span class="info-box-icon bg-success elevation-1">
+                            <a asp-action="ReportQuestion" asp-controller="Admin">
+                                <i class="fas fa-clipboard-list"></i>
+                            </a>
+                        </span>
+                        <div class="info-box-content">
+                            <span class="info-box-text report-detail-title">Report Question</span>
+                            <a asp-action="ReportQuestion" asp-controller="Admin" class="report-ques-btn">
+                                View all report question
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

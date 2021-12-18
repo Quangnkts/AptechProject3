@@ -1,0 +1,56 @@
+﻿@model IEnumerable<Aptitude.Models.Department>
+    <table class="table" id="table1">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Details</th>
+                <th>Requirement</th>
+                <th>Location</th>
+                <th>Welfare</th>
+                <th>Salary</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>@item.Name</td>
+                    <td>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#d-@item.Id">
+                            Details
+                        </button>
+                        <!-- Modal -->
+                        <!-- Modal -->
+                        <div class="modal fade" id="d-@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title">@item.Name</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                       @Html.Raw(item.Detail)
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>@Html.Raw(item.Requirement)</td>
+                    <td>@item.Location</td>
+                    <td>@Html.Raw(item.Welfare)</td>
+                    <td>@item.Salary</td>
+                    <td>
+                        <a asp-controller="Admin" class="btn btn-info" asp-action="Department_Update" asp-route-id="@item.Id">Update</a>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>

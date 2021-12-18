@@ -1,0 +1,77 @@
+﻿@{ ViewData["Title"] = "Aptitude-Online";
+    Layout = "~/Views/Exam/examLayout.cshtml";
+}
+@section css{
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+</style>
+}
+<hr />
+<br />
+<section class="details-result">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header" style="color:saddlebrown; text-align:center">
+                        <h2>RESULT</h2>
+                    </div>
+                    <div class="card-body">
+                        <table>
+                            <tr>
+                                <th><h3>Exam</h3></th>
+                                <th><h3>Point</h3></th>
+                                
+                            </tr>
+                            <tr>
+                                <td>General</td>
+                                <td>@ViewBag.general</td>
+                               
+                            </tr>
+                            <tr>
+                                <td>Math</td>
+                                <td>@ViewBag.math</td>
+                                
+                            </tr>
+                            <tr>
+                                <td>Computer</td>
+                                <td>@ViewBag.computer</td>
+                               
+                            </tr>
+
+                        </table>
+                    </div>
+                    <div class="card-footer">
+                        <h3>@ViewBag.resultPoint</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col-md-8"></div>
+            <div class="col-md-3">
+                <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="nav-link btn btn-link text-dark">Logout</button>
+                </form>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
+</section>

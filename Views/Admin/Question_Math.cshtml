@@ -1,0 +1,117 @@
+﻿@model IEnumerable<Aptitude.Models.Question>
+@{
+    ViewData["Title"] = "Question_Math";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+@section CSS{
+    <link rel="stylesheet" href="~/css/thanhcss.css">
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="container-fluid">
+                <div class="card">
+                    <!--Title-->
+                    <div class="row">
+                        <div class="col-lg-12 text-center">
+                            <h5 class="card-header">List of Math Question</h5>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <!--Search using partial view name: _Search-->
+                        <div class="row" id="searchtable">
+                            <div class="col-lg-8"></div>
+                            <div class="col-lg-4">
+                                <form asp-action="Question_Math" asp-controller="Admin" method="get">
+                                    <partial name="PartialView/_SearchQuestion" />
+                                </form>
+                            </div>
+                        </div>
+                        <!--Table using partial view name: _Table-->
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <table class="table table-bordered" id="table1">
+                                    <thead class="thead-dark">
+                                        <partial name="PartialView/_TableQuestion" />
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            //Filter exam section by value (1:general knowlegde||2:Math||3:Computer Technology)
+                                            if (item.Category == 2)
+                                            {
+                                                <tr>
+                                                    <td id="question-type">
+                                                        @foreach (var item1 in ViewBag.Depart)
+                                                        {
+                                                            if (item1.Id == item.DepartmentId)
+                                                            {
+                                                                @item1.Name
+                                                            }
+                                                        }
+                                                    </td>
+                                                    <td id="question-name">
+                                                        <p>@item.QuestionName</p>
+                                                    </td>
+                                                    <td id="question-answer">
+                                                        <p>@item.Answer1</p>
+                                                    </td>
+                                                    <td id="question-answer">
+                                                        <p>@item.Answer2</p>
+                                                    </td>
+                                                    <td id="question-answer">
+                                                        <p>@item.Answer3</p>
+                                                    </td>
+                                                    <td id="question-answer">
+                                                        <p>@item.Answer4</p>
+                                                    </td>
+                                                    <td id="question-final">
+                                                        <p>@item.FinalAnswer</p>
+                                                    </td>
+                                                    <td id="question-level">
+                                                        @if (item.Level == 10)
+                                                        {
+                                                            <p>Easy</p>
+                                                        }
+                                                        else if (item.Level == 20)
+                                                        {
+                                                            <p>Medium</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p>Hard</p>
+                                                        }
+                                                    </td>
+                                                    <td id="question-status">
+                                                        @if (item.Status == 1)
+                                                        {
+                                                            <p>Enable</p>
+                                                        }
+                                                        else
+                                                        {
+                                                            <p>Disable</p>
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        <p>
+                                                            <a class="btn btn-info" asp-controller="Admin" asp-action="Question_Update" asp-route-id="@item.Id">Update</a>
+                                                        </p>
+                                                    </td>
+                                                </tr>
+                                            }
+
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <!--thanh js-->
+    <script src="~/js/thanhjs.js"></script>
+}

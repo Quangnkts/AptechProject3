@@ -1,0 +1,272 @@
+﻿﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .header {
+            overflow: hidden;
+            background-color: #f1f1f1;
+            padding: 10px 10px 10px 10px;
+        }
+
+            .header a {
+                float: left;
+                color: black;
+                text-align: center;
+                padding: 20px 10px;
+                text-decoration: none;
+                font-size: 18px;
+                line-height: 20px;
+                border-radius: 40px;
+                display: block;
+            }
+
+                .header a.logo {
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+
+                .header a:hover {
+                    background-color: #ddd;
+                    color: black;
+                }
+
+                .header a.active {
+                    background-color: dodgerblue;
+                    color: white;
+                }
+
+        .fc-header-left {
+            padding-left: 50px;
+        }
+
+        .header-right {
+            float: right;
+            padding-right: 30px;
+        }
+
+        .footer-big {
+            padding: 30px 0 30px 0
+        }
+
+            .footer-big .footer-widget {
+                margin-bottom: 40px
+            }
+
+            .footer-big .footer-menu ul li a,
+            .footer-big p,
+            .footer-big ul li {
+                color: #000;
+                list-style-type: square;
+            }
+
+        .footer-menu {
+            padding-left: 50px
+        }
+
+            .footer-menu a {
+                color: #000;
+                line-height: 2;
+                letter-spacing: 1.1px;
+            }
+
+                .footer-menu a:hover {
+                    color: #777;
+                    line-height: 2;
+                    letter-spacing: 1.1px;
+                }
+
+        .footer-menu--1 {
+            width: 100%
+        }
+
+        .footer-widget-title {
+            line-height: 42px;
+            margin-bottom: 10px;
+            font-size: 19px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .footer--light {
+            background-color: #f6f6f6;
+        }
+
+        .mini-footer {
+            border-top: 1px solid #ccc;
+            background-color: #f6f6f6;
+            text-align: center;
+            padding: 20px 0;
+            margin-bottom: -40px;
+        }
+
+            .mini-footer p {
+                margin: 0;
+                line-height: 26px;
+                font-size: 15px;
+                color: #000;
+            }
+
+                .mini-footer p a {
+                    color: #f29b15;
+                }
+
+                    .mini-footer p a:hover {
+                        color: #34bfa3
+                    }
+
+        .background-header {
+            background: url('/images/new-bg.jpg') center top;
+            min-height: 100px !important;
+            color: #f29a11 !important;
+            padding-top: 240px;
+            padding-bottom: 60px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        .col-md-7.align-self-center {
+            padding: 40px 40px;
+        }
+
+        h1.display-4 {
+            padding-bottom: 10px;
+            border-bottom: 3px solid #f29a12;
+        }
+
+        .fa {
+            padding: 20px;
+            font-size: 15px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px;
+        }
+
+            .fa:hover {
+                opacity: 0.7;
+            }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+
+        .fa-skype {
+            background: #00aff0;
+            color: white;
+        }
+    </style>
+@RenderSection("css", required: false)
+</head>
+<body>
+    @*<div class="header">
+        <a href="#" class="logo">
+            <img src="~/images/logo.png" alt="" width="70" height="70">
+        </a>
+        <div class="fc-header-left">
+            <h3><a asp-area="" asp-controller="Home" asp-action="Homepage"><i class="fa fa-fw fa-home"></i>Home</a></h3>
+            <h3><a href="#"><i class="fa fa-fw fa-info"></i>Profile</a></h3>
+            <h3><a href="#"><i class="fa fa-fw fa-close"></i>Logout</a></h3>
+        </div>
+    </div>*@
+
+    <main role="main" class="pb-3">
+@RenderBody()
+</main>
+
+<footer class="footer-area footer--light">
+    <div class="footer-big">
+        <div class="container-fluid">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3 col-sm-3">
+                        <div class="footer-widget">
+                            <div class="widget-about">
+                                <h4 class="footer-widget-title">We Are Aptitude-Online</h4>
+                                <img src="~/images/aptitude.png" alt="" class="img-fluid" width="200" height="auto">
+                            </div>
+                        </div><!-- Ends: .footer-widget -->
+                    </div><!-- end /.col-md-4 -->
+                    <div class="col-md-3 col-sm-3">
+                        <div class="footer-widget">
+                            <div class="footer-menu">
+                                <h4 class="footer-widget-title">Our Company</h4>
+                                <a asp-area="" asp-controller="Home" asp-action="Homepage">Home</a><br>
+                                <a href="#">Profile</a><br>
+                            </div><!-- end /.footer-menu -->
+                        </div><!-- Ends: .footer-widget -->
+                    </div><!-- end /.col-lg-3 -->
+                    <div class="col-md-3 col-sm-3">
+                        <div class="footer-widget">
+                            <div class="footer-menu no-padding">
+                                <h4 class="footer-widget-title">Our Partner</h4>
+                                <img src="~/images/logo.png" alt="" class="img-fluid" width="200"
+                                     height="auto"><br><br>
+                            </div><!-- end /.footer-menu -->
+                        </div><!-- Ends: .footer-widget -->
+                    </div><!-- Ends: .col-lg-3 -->
+                    <div class="col-md-3 col-sm-3">
+                        <div class="footer-widget">
+                            <div class="widget-about">
+                                <h4 class="footer-widget-title">Media</h4>
+                                <a href="#" class="fa fa-facebook"></a>
+                                <a href="#" class="fa fa-twitter"></a>
+                                <a href="#" class="fa fa-linkedin"></a>
+                                <a href="#" class="fa fa-instagram"></a>
+                                <a href="#" class="fa fa-skype"></a>
+                            </div>
+                        </div><!-- Ends: .footer-widget -->
+                    </div><!-- end /.col-md-4 -->
+                </div><!-- end /.row -->
+            </div><!-- end /.container -->
+        </div>
+        <!-- end /.footer-big -->
+        <div class="mini-footer footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright-text">
+                            <p>
+                                © 2020
+                                <a asp-area="" asp-controller="Home" asp-action="Homepage">Aptitude-Online</a>. All
+                                rights reserved. Created by
+                                <span>Team 1 - FPT APTECH STUDENT</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+@RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Question_Update";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+@section CSS{
+    <link rel="stylesheet" href="~/css/thanhcss.css">
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 body-inner">
+            <div class="card">
+                <div class="card-header ques-card-header">
+                    <h3 class="text-center"><b>Update Question</b></h3>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Question_Update" asp-controller="Admin" method="post">
+                        <partial name="PartialView/_CreateUpdate" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <!--Summner note-->
+    <script>
+        $(function () {
+            // Summernote
+            $('.ques-ck').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol']],
+                    ['height', ['height']]
+                ]
+            })
+        })</script>
+}

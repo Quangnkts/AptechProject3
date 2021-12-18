@@ -1,0 +1,114 @@
+﻿@model IEnumerable<Aptitude.Models.CV>
+
+@{
+    ViewData["Title"] = "Create_User";
+    Layout = "~/Views/Shared/AdminLTE/_Layout.cshtml";
+}
+
+<h1>Recruitment</h1>
+<form asp-controller="Admin" method="post">
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Email</th>
+                <th scope="col">FirstName</th>
+                <th scope="col">LastName</th>
+                <th scope="col">University</th>
+                <th scope="col">Mark</th>
+                <th scope="col">Language</th>
+                <th scope="col">Acction</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.University)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mark)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Language)
+                </td>
+                <td>
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#a-@item.ID">
+                        <i class="fa fa-id-card" aria-hidden="true"></i>
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="a-@item.ID" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Information of the Candidate</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    @Html.DisplayNameFor(modelItem => item.ID):
+                                    @Html.DisplayFor(modelItem => item.ID)
+                                    <br />
+                                    FULL NAME :
+                                    @Html.DisplayFor(modelItem => item.FirstName)
+                                    @Html.DisplayFor(modelItem => item.LastName)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.Email):
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.LastPostion):
+                                    @Html.DisplayFor(modelItem => item.LastPostion)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.Experience):
+                                    @Html.DisplayFor(modelItem => item.Experience)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.Hobby):
+                                    @Html.DisplayFor(modelItem => item.Hobby)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.Mark):
+                                    @Html.DisplayFor(modelItem => item.Mark)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.PersonalDetail):
+                                    @Html.DisplayFor(modelItem => item.PersonalDetail)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.Project):
+                                    @Html.DisplayFor(modelItem => item.Project)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.Status):
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                    <br />
+                                    @Html.DisplayNameFor(modelItem => item.University):
+                                    @Html.DisplayFor(modelItem => item.University)
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" asp-action="Create_User" asp-route-ID="@item.ID" class="btn btn-outline-warning">
+                        <i class="fa fa-check" aria-hidden="true" ></i>
+                    </button>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</form>
+

@@ -1,0 +1,183 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    Layout = "~/Views/Home/userLayout.cshtml";
+}
+<!--Declare a CSS session-->
+@section css{
+    <style>
+        .carousel-item.home {
+            min-height: 700px;
+            background: no-repeat center center scroll;
+            -webkit-background-size: cover;
+            -moz-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+
+        .row.first-line {
+            margin-top: 20px;
+        }
+
+        .section-box-service {
+            height: 300px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+
+            .section-box-service figure {
+                position: absolute;
+                text-align: left;
+                padding: 10px 19px 30px 19px;
+                width: 100%;
+                height: 100%;
+                border-top: 2px solid #f29a12;
+                background: rgba(0, 0, 0, 0.71);
+                bottom: -82%;
+                transition: ease-in-out .5s;
+            }
+
+            .section-box-service:hover figure {
+                bottom: -15px;
+            }
+
+            .section-box-service figure h1 {
+                color: #f6f6f6;
+                margin: 0;
+                font-size: 24px;
+                padding-top: 10px;
+                padding-bottom: 20px;
+            }
+
+            .section-box-service figure h4 {
+                color: #f6f6f6;
+            }
+
+            .section-box-service figure a {
+                color: #000;
+                background: #f29a11;
+            }
+
+            .section-box-service img {
+                height: 100%;
+            }
+    </style>
+}<!--end /. Declare a CSS session-->
+<!--container-fluid-->
+<div class="container-fluid">
+    <hr />
+    <!--section.content-slider-->
+    <section id="slider" class="content-slider">
+        <!--section.carousel slide-->
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+            <!--ol-->
+            <ol class="carousel-indicators">
+                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            </ol> <!--/.ol-->
+            <!--carousel-inner-->
+            <div class="carousel-inner" role="listbox">
+                <!--carousel-item home -->
+                <div class="carousel-item home active">
+                    <img src="~/images/o2.jpg" alt="" width="100%" height="auto">
+                    <div class="carousel-caption d-none d-md-block">
+
+                    </div>
+                </div> <!--/.carousel-item home -->
+                <!--carousel-item home -->
+                <div class="carousel-item home">
+                    <img src="~/images/o5.jpg" alt="" width="100%" height="auto">
+                    <div class="carousel-caption d-none d-md-block">
+
+                    </div>
+                </div><!--/.carousel-item home -->
+                <!--carousel-item home -->
+                <div class="carousel-item home">
+                    <img src="~/images/o7.jpg" alt="" width="100%" height="auto">
+                    <div class="carousel-caption d-none d-md-block">
+
+                    </div>
+                </div><!--/.carousel-item home -->
+                <!--carousel-item home -->
+                <div class="carousel-item home">
+                    <img src="~/images/o6.jpg" alt="" width="100%" height="auto">
+                    <div class="carousel-caption d-none d-md-block">
+
+                    </div>
+                </div><!--/.carousel-item home -->
+            </div><!--/.carousel-inner-->
+            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> <!--/.section.carousel slide-->
+    </section><!--/sesion.content-slider-->
+</div><!--/.container-fluid-->
+<br />
+<!--container-->
+<div class="container">
+    <!--section.info-->
+    <section class="info">
+        <!--row-->
+        <div class="row">
+            <!--col-md-12 col-sm-12 col-xs-12-->
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                <h1 style="font-family:Georgia; text-align:center; font-size:80px; color:cadetblue">SOME INFOMATION</h1>
+            </div>  <!--/.col-md-12 col-sm-12 col-xs-12-->
+        </div> <!--/.row-->
+    </section><!--/.section.info-->
+</div><!--/.container-->
+<br />
+<!--container-fluid-->
+<div class="container-fluid">
+    <!--section.main-content-text-->
+    <section class="main-content-text">
+        <!--row.first-line-->
+        <div class="row first-line" style="text-align:center">
+            <!--col-md-4 col-sm-12-->
+            <div class="col-md-4 col-sm-12">
+                <!--section-box-service-->
+                <div class="section-box-service">
+                    <figure>
+                        <h1>Aptitude-Online</h1>
+                        <h4>We are looking for some vacancies.</h4>
+                        <a asp-area="" asp-controller="Home" asp-action="ListJobs" class="btn btn-read">All Jobs</a>
+                    </figure>
+                    <img src="~/images/job-search.jpg" class="img-fluid" width="100%" height="auto" />
+                </div>   <!--/.section-box-service-->
+            </div>  <!--/.col-md-4 col-sm-12-->
+            <!--col-md-4 col-sm-12-->
+            <div class="col-md-4 col-sm-12">
+                <!--section-box-service-->
+                <div class="section-box-service">
+                    <figure>
+                        <h1>More Infomation About Us</h1>
+                        <h4>We are Webster.</h4>
+                        <a href="#" class="btn btn-read">More</a>
+                    </figure>
+                    <img src="~/images/about.png" class="img-fluid" width="100%" height="auto" />
+                </div><!--/.section-box-service-->
+            </div>  <!--/.col-md-4 col-sm-12-->
+            <!--col-md-4 col-sm-12-->
+            <div class="col-md-4 col-sm-12">
+                <!--section-box-service-->
+                <div class="section-box-service">
+                    <figure>
+                        <h1>Contact us</h1>
+                        <h4>Contact us now.</h4>
+                        <a href="#" class="btn btn-read">More</a>
+                    </figure>
+                    <img src="~/images/contact.png" class="img-fluid" width="100%" height="auto" />
+                </div>   <!--/.section-box-service-->
+            </div>  <!--/.col-md-4 col-sm-12-->
+        </div> <!--/.row.first-line-->
+    </section><!--/. section.main-content-text-->
+    <br>
+    <br>
+</div><!--/.container-fluid-->
